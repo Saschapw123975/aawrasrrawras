@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>BackendCSharp</AssemblyName>
+    <RootNamespace>BackendCSharp</RootNamespace>
+    <Version>1.0.0</Version>
+    <Authors>Crymson</Authors>
+    <Company>Crymson</Company>
+    <Product>Crymson Gaming Platform Backend</Product>
+    <Description>Backend API server for Crymson gaming platform</Description>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <PublishSingleFile>true</PublishSingleFile>
+    <PublishTrimmed>false</PublishTrimmed>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- CORS is built into ASP.NET Core, no package needed -->
+    <!-- System.Text.Json is built into .NET 8, no package needed -->
+    <!-- Microsoft.Extensions.Caching.Memory is built into ASP.NET Core -->
+    <!-- Microsoft.Extensions.Http is built into ASP.NET Core -->
+  </ItemGroup>
+
+</Project>
+
