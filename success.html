@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <title>Payment Successful - Crymson</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .success-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-darkest);
+            padding: 2rem;
+        }
+        .success-box {
+            background: var(--bg-card);
+            border: 2px solid #22c55e;
+            border-radius: 2rem;
+            padding: 4rem;
+            text-align: center;
+            max-width: 500px;
+            box-shadow: 0 0 60px rgba(34, 197, 94, 0.2);
+        }
+        .success-icon {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+        }
+        .success-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #22c55e;
+            margin-bottom: 1rem;
+        }
+        .success-message {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        .success-details {
+            background: var(--bg-elevated);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        .success-details h4 {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+        .success-details p {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .success-details p:last-child {
+            border-bottom: none;
+        }
+        .success-details span {
+            color: var(--text-secondary);
+        }
+        .success-details strong {
+            color: var(--text-primary);
+        }
+        .btn-home {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        .btn-home:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Auto-open Discord when page loads
+        window.addEventListener('load', function() {
+            // Open Discord in new tab
+            window.open('https://discord.gg/eDe2dNBEDj', '_blank');
+        });
+    </script>
+    <div class="success-page">
+        <div class="success-box">
+            <div class="success-icon">✅</div>
+            <h1 class="success-title">Payment Successful!</h1>
+            <p class="success-message">
+                Thank you for purchasing Crymson! Your lifetime access is now active. 
+                You can start enjoying all games for free immediately.
+            </p>
+            <div class="success-details">
+                <h4>Purchase Details</h4>
+                <p><span>Product</span><strong>Crymson Lifetime</strong></p>
+                <p><span>Amount</span><strong>$13.00</strong></p>
+                <p><span>Access</span><strong>Lifetime (Forever)</strong></p>
+                <p><span>Status</span><strong style="color: #22c55e;">✓ Active</strong></p>
+            </div>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                <a href="https://discord.gg/eDe2dNBEDj" target="_blank" class="btn-home" id="discord-btn">
+                    Open Discord & Make Ticket
+                </a>
+                <a href="/" class="btn-home" style="background: var(--bg-elevated); border: 1px solid var(--border);">
+                    Go Home
+                </a>
+            </div>
+            <div style="margin-top: 2rem; padding: 1.5rem; background: var(--bg-elevated); border-radius: 1rem; border: 1px solid var(--border);">
+                <h4 style="color: var(--text-primary); margin-bottom: 0.75rem; font-size: 1.1rem;">📋 Next Steps:</h4>
+                <ol style="text-align: left; color: var(--text-secondary); line-height: 2; padding-left: 1.5rem;">
+                    <li>Click "Open Discord & Make Ticket" above</li>
+                    <li>Join the Discord server</li>
+                    <li>Create a ticket in the support channel</li>
+                    <li>Provide your payment confirmation</li>
+                    <li>Receive your Crymson access!</li>
+                </ol>
+            </div>
+            <p style="margin-top: 1.5rem; color: var(--text-muted); font-size: 0.9rem;">
+                Discord: <a href="https://discord.gg/eDe2dNBEDj" target="_blank" style="color: var(--primary);">https://discord.gg/eDe2dNBEDj</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+

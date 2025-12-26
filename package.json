@@ -1,0 +1,17 @@
+{
+  "name": "crymson-website",
+  "version": "1.0.0",
+  "description": "Crymson Gaming Platform Website",
+  "scripts": {
+    "serve": "npx serve .",
+    "dev": "npx serve . -p 8000"
+  },
+  "keywords": [
+    "gaming",
+    "platform",
+    "crymson"
+  ],
+  "author": "Crymson Team",
+  "license": "MIT"
+}
+

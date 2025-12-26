@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0d0d0d">
+    <title>Crymson - Unlimited Games Access</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="logo">Crymson</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#games" class="nav-link">Games</a>
+                <a href="#buy" class="nav-link nav-buy">Buy Now</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#about" class="nav-link">About</a>
+            </div>
+            <div class="nav-actions">
+                <span class="online-count"><span class="pulse"></span>2.3K Users</span>
+                <button class="theme-toggle" id="theme-toggle" title="Toggle Theme">🌓</button>
+                <button class="btn btn-login" id="login-btn">Sign In</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner -->
+    <div class="announcement">
+        <div class="container">
+            <span class="discount-badge">🔓 UNLIMITED ACCESS</span>
+            <span class="discount-text">One-time purchase of $13 - All games FREE forever!</span>
+            <a href="#buy" class="discount-link">Get Crymson →</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-badge">🎮 Gaming Platform</div>
+            <h1 class="hero-title">
+                <span class="title-gradient">Crymson</span>
+            </h1>
+            <p class="hero-subtitle">All games are FREE with Crymson</p>
+            <h2 class="hero-tagline">Infinite games. One payment. Forever access.</h2>
+            <p class="hero-description">Get unlimited access to every game for just $13 one-time. Play any game for free and enjoy infinite gaming possibilities. No monthly fees, no hidden costs.</p>
+            <div class="hero-buttons">
+                <a href="#buy" class="btn btn-primary">
+                    <span>Get Crymson - $13</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#games" class="btn btn-secondary">
+                    <span>Browse Games</span>
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="stat-value">Infinite</span>
+                    <span class="stat-desc">Games Available</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="stat-value">2.3K</span>
+                    <span class="stat-desc">Active Users</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="stat-value">$13</span>
+                    <span class="stat-desc">One-Time</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section class="games-section" id="games">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">🎯 Infinite Library</div>
+                <h2 class="section-title">All Games FREE with Crymson</h2>
+                <p class="section-desc">Browse our library of <span id="total-games-count">160+</span> games - all available free with your Crymson purchase</p>
+            </div>
+            <div class="games-grid" id="games-grid">
+                <!-- Games loaded from Steam API -->
+                <div class="game-card skeleton"></div>
+                <div class="game-card skeleton"></div>
+                <div class="game-card skeleton"></div>
+                <div class="game-card skeleton"></div>
+                <div class="game-card skeleton"></div>
+                <div class="game-card skeleton"></div>
+                <div class="game-card skeleton"></div>
+                <div class="game-card skeleton"></div>
+            </div>
+            <div class="games-counter">
+                <span>Showing <span id="games-shown">0</span> of <span id="games-total">160</span> games</span>
+            </div>
+            <div class="games-actions">
+                <button class="btn btn-outline" id="load-more-games">
+                    <span>Load More Games</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Buy Section - Single $13 Option -->
+    <section class="buy-section" id="buy">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">💎 One-Time Purchase</div>
+                <h2 class="section-title">Get Crymson Access</h2>
+                <p class="section-desc">Pay once, play forever. All games included.</p>
+            </div>
+            <div class="single-pricing">
+                <div class="pricing-card-large">
+                    <div class="pricing-glow"></div>
+                    <div class="pricing-badge-large">Best Value</div>
+                    <div class="pricing-content">
+                        <h3>Crymson Lifetime</h3>
+                        <div class="pricing-price-large">
+                            <span class="price-large">$13</span>
+                            <span class="period-large">one-time payment</span>
+                        </div>
+                        <p class="pricing-tagline">Pay once. Own forever. No subscriptions.</p>
+                        <ul class="pricing-features-large">
+                            <li><span class="check">✓</span> Access to ALL games (Infinite library)</li>
+                            <li><span class="check">✓</span> All games FREE with Crymson</li>
+                            <li><span class="check">✓</span> Lifetime updates & new games</li>
+                            <li><span class="check">✓</span> Priority servers & instant access</li>
+                            <li><span class="check">✓</span> Cloud saves across all devices</li>
+                            <li><span class="check">✓</span> 24/7 Premium support</li>
+                            <li><span class="check">✓</span> No monthly fees ever</li>
+                        </ul>
+                    <a href="/payment" id="checkout-btn" class="btn btn-checkout">
+                        <span>🔒 Secure Checkout - $13</span>
+                    </a>
+                        <div class="payment-methods">
+                            <span>Secure payment via</span>
+                            <span class="stripe-badge">Card, PayPal, or Crypto</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">⚡ Features</div>
+                <h2 class="section-title">What You Get</h2>
+                <p class="section-desc">Everything included with your $13 purchase</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">♾️</div>
+                    <h3>Infinite Games</h3>
+                    <p>Access unlimited games from our ever-growing library. New games added weekly.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🆓</div>
+                    <h3>All Games Free</h3>
+                    <p>Every single game in our library is completely free with your Crymson access.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>One-Time Payment</h3>
+                    <p>Pay $13 once and never pay again. No subscriptions, no hidden fees.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">☁️</div>
+                    <h3>Cloud Saves</h3>
+                    <p>Your progress syncs across all devices automatically.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Fast Servers</h3>
+                    <p>Priority access to our fastest servers worldwide.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Games Available</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2.3K</div>
+                    <div class="stat-label">Happy Users</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$13</div>
+                    <div class="stat-label">One-Time Price</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="150">0</div>
+                    <div class="stat-suffix">+</div>
+                    <div class="stat-label">Countries</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="section-tag">🚀 About</div>
+                    <h2 class="about-title">What is Crymson?</h2>
+                    <p>Crymson is your all-access pass to unlimited gaming. For just $13 one-time, you get permanent access to our infinite game library.</p>
+                    <p>Every game is completely FREE once you have Crymson.</p>
+                    <p>No monthly fees. No subscriptions. Just one payment and lifetime access to everything.</p>
+                </div>
+                <div class="about-visual">
+                    <div class="about-card">
+                        <div class="about-icon">🎮</div>
+                        <h4>Infinite Games</h4>
+                        <p>Unlimited access to all games</p>
+                    </div>
+                    <div class="about-card">
+                        <div class="about-icon">💎</div>
+                        <h4>One Payment</h4>
+                        <p>$13 once, forever access</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">❓ FAQ</div>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Is Crymson free?</h3>
+                    <p>No, Crymson is NOT free. It's a one-time purchase of $13 that gives you lifetime access to all games and features forever.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What do I get for $13?</h3>
+                    <p>You get permanent access to our infinite game library, cloud saves, priority servers, and all future updates. All games become FREE for you.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is this a subscription?</h3>
+                    <p>No! It's a ONE-TIME purchase. Pay $13 once and never pay again. No monthly fees, no annual renewals.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Are all games really free?</h3>
+                    <p>Yes! Once you purchase Crymson for $13, every game in our library is completely free to access and play forever.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How do I pay?</h3>
+                    <p>We use Stripe for secure payment processing. You can pay with credit card, debit card, or other supported methods.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3 class="footer-logo">Crymson</h3>
+                    <p>Infinite games. One payment. Forever access. All games FREE with Crymson.</p>
+                    <div class="footer-social">
+                        <a href="https://discord.gg/eDe2dNBEDj" target="_blank" rel="noopener noreferrer" class="social-link">Discord</a>
+                        <a href="https://www.youtube.com/@CrymsonV12" target="_blank" rel="noopener noreferrer" class="social-link">YouTube</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Platform</h4>
+                        <ul>
+                            <li><a href="#games">Browse Games</a></li>
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#buy">Get Crymson</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="#help">Help Center</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="#status">Status</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="#terms">Terms</a></li>
+                            <li><a href="#privacy">Privacy</a></li>
+                            <li><a href="#refund">Refund Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Crymson. All games FREE with Crymson. $13 one-time purchase.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="login-modal" id="login-modal">
+        <div class="login-modal-content">
+            <button class="login-close" onclick="closeLoginModal()">×</button>
+            <h2>Sign In to Crymson</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="login-email" required placeholder="your@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="login-password" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In</button>
+                <p style="text-align: center; margin-top: 1rem; color: var(--text-muted); font-size: 0.9rem;">
+                    Don't have an account? <a href="#signup" style="color: var(--primary);">Sign up</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

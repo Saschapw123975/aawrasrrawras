@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <title>Payment Cancelled - Crymson</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .cancel-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-darkest);
+            padding: 2rem;
+        }
+        .cancel-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 2rem;
+            padding: 4rem;
+            text-align: center;
+            max-width: 500px;
+        }
+        .cancel-icon {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+        }
+        .cancel-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        .cancel-message {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        .btn-retry {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            text-decoration: none;
+            font-weight: 700;
+            margin-right: 1rem;
+            transition: all 0.3s ease;
+        }
+        .btn-home {
+            display: inline-block;
+            background: var(--bg-elevated);
+            color: var(--text-primary);
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        .btn-retry:hover, .btn-home:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="cancel-page">
+        <div class="cancel-box">
+            <div class="cancel-icon">❌</div>
+            <h1 class="cancel-title">Payment Cancelled</h1>
+            <p class="cancel-message">
+                Your payment was cancelled. No charges were made to your account. 
+                If you have any questions, please contact support.
+            </p>
+            <a href="/#buy" class="btn-retry">Try Again</a>
+            <a href="/" class="btn-home">Go Home</a>
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <title>Admin - Crymson Purchases</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .admin-page {
+            min-height: 100vh;
+            background: var(--bg-darkest);
+            padding: 2rem;
+        }
+        .admin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .admin-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+        .admin-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .stat-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .stat-box h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .stat-box p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        .purchases-table {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+        .table-header {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr 1fr 2fr;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            background: var(--bg-elevated);
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+        .table-row {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr 1fr 2fr;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+        .table-row:last-child {
+            border-bottom: none;
+        }
+        .table-row:hover {
+            background: var(--bg-elevated);
+        }
+        .status-paid {
+            color: #22c55e;
+            font-weight: 600;
+        }
+        .amount {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        .no-purchases {
+            padding: 3rem;
+            text-align: center;
+            color: var(--text-muted);
+        }
+        .refresh-btn {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .refresh-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
+        }
+        .back-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .back-link:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-page">
+        <div class="admin-container">
+            <div class="admin-header">
+                <div>
+                    <a href="/" class="back-link">← Back to Site</a>
+                    <h1 class="admin-title">Crymson Admin</h1>
+                </div>
+                <button class="refresh-btn" onclick="loadPurchases()">🔄 Refresh</button>
+            </div>
+            
+            <div class="admin-stats">
+                <div class="stat-box">
+                    <h3 id="total-purchases">0</h3>
+                    <p>Total Purchases</p>
+                </div>
+                <div class="stat-box">
+                    <h3 id="total-revenue">$0</h3>
+                    <p>Total Revenue</p>
+                </div>
+                <div class="stat-box">
+                    <h3>$13</h3>
+                    <p>Price per Purchase</p>
+                </div>
+            </div>
+            
+            <div class="purchases-table">
+                <div class="table-header">
+                    <span>#</span>
+                    <span>Email</span>
+                    <span>Amount</span>
+                    <span>Status</span>
+                    <span>Date</span>
+                </div>
+                <div id="purchases-list">
+                    <div class="no-purchases">Loading purchases...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        async function loadPurchases() {
+            try {
+                const response = await fetch('/api/purchases');
+                const data = await response.json();
+                
+                // Update stats
+                document.getElementById('total-purchases').textContent = data.total;
+                document.getElementById('total-revenue').textContent = '$' + data.total_revenue.toFixed(2);
+                
+                // Update table
+                const list = document.getElementById('purchases-list');
+                
+                if (data.purchases.length === 0) {
+                    list.innerHTML = '<div class="no-purchases">No purchases yet. Purchases will appear here when someone buys through Stripe.</div>';
+                    return;
+                }
+                
+                list.innerHTML = data.purchases.map((p, i) => `
+                    <div class="table-row">
+                        <span>${data.purchases.length - i}</span>
+                        <span>${p.customer_email || 'N/A'}</span>
+                        <span class="amount">$${p.amount.toFixed(2)}</span>
+                        <span class="status-paid">✓ ${p.payment_status || 'paid'}</span>
+                        <span>${new Date(p.timestamp).toLocaleString()}</span>
+                    </div>
+                `).reverse().join('');
+                
+            } catch (error) {
+                console.error('Error loading purchases:', error);
+                document.getElementById('purchases-list').innerHTML = 
+                    '<div class="no-purchases">Error loading purchases. Make sure the server is running.</div>';
+            }
+        }
+        
+        // Load on page load
+        loadPurchases();
+        
+        // Auto-refresh every 30 seconds
+        setInterval(loadPurchases, 30000);
+    </script>
+</body>
+</html>
+
